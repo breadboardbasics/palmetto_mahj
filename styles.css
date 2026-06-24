@@ -282,7 +282,9 @@ h2 {
 .about-visual .founder-portrait-primary {
   height: 100%;
   object-fit: cover;
-  object-position: 58% 42%;
+  object-position: 58% top;
+  transform: translateY(-14%) scale(1.18);
+  transform-origin: center top;
 }
 .about-visual::after {
   content: "";
@@ -293,8 +295,8 @@ h2 {
 .founder-portrait-secondary {
   position: absolute;
   z-index: 2;
-  top: 2.5rem;
-  left: 2.5rem;
+  right: 2.5rem;
+  bottom: 2.5rem;
   width: min(34%, 230px);
   aspect-ratio: .84;
   padding: .45rem;
@@ -305,7 +307,7 @@ h2 {
 .founder-portrait-secondary img {
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
 }
 .about-visual blockquote {
   position: absolute;
@@ -527,7 +529,7 @@ footer > p { margin: 0; font-size: .7rem; text-transform: uppercase; }
   .section-heading { grid-template-columns: 1fr; gap: 1.3rem; }
   .about-visual { min-height: 430px; }
   .about-visual blockquote { left: 1.5rem; bottom: 1.5rem; }
-  .founder-portrait-secondary { top: 1.25rem; left: 1.25rem; width: 30%; }
+  .founder-portrait-secondary { right: 1.25rem; bottom: 1.25rem; width: 30%; }
   .about-copy { padding: 4rem 1.5rem; }
   .values { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-rows: 280px 210px 280px; }
