@@ -121,7 +121,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   overflow: hidden;
   color: white;
 }
-.hero-video {
+.hero-image {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -344,16 +344,21 @@ h2 {
 .gallery-grid {
   display: grid;
   grid-template-columns: 1.25fr .75fr 1fr;
-  grid-template-rows: 290px 290px;
+  grid-template-rows: 290px 290px 380px;
   gap: 1rem;
 }
 .gallery-grid figure { position: relative; margin: 0; overflow: hidden; }
 .gallery-grid img { height: 100%; object-fit: cover; transition: transform .5s ease; }
 .gallery-grid figure:hover img { transform: scale(1.025); }
-.gallery-main { grid-row: 1 / 3; }
-.gallery-main img { object-position: 50% 58%; }
-.gallery-wide { grid-column: 2 / 4; }
-.gallery-wide img { object-position: center 72%; }
+.gallery-main { grid-column: 1; grid-row: 1 / 3; }
+.gallery-main img { object-position: center 42%; }
+.gallery-detail.tiles { grid-column: 2; grid-row: 1; }
+.gallery-detail.flowers { grid-column: 3; grid-row: 1; }
+.gallery-lesson { grid-column: 1 / 4; grid-row: 3; }
+.gallery-lesson-wide { grid-column: 2 / 4; grid-row: 2; }
+.gallery-lesson img { object-position: center 54%; }
+.gallery-lesson-wide img { object-position: center 20%; }
+.gallery-lesson-full img { object-position: center 34%; }
 .gallery-grid figcaption {
   position: absolute;
   z-index: 2;
@@ -368,6 +373,7 @@ h2 {
 }
 .gallery-detail { display: grid; place-items: center; }
 .gallery-detail.tiles { background: var(--pink-soft); }
+.gallery-detail.tiles img { object-position: center 58%; }
 .tile-row { display: flex; gap: .5rem; }
 .tile-row span {
   display: grid;
@@ -382,7 +388,7 @@ h2 {
   font-size: 1.25rem;
 }
 .gallery-detail.flowers { background: var(--green); }
-.gallery-detail.flowers img { object-position: center 66%; }
+.gallery-detail.flowers img { object-position: center 90%; }
 .gallery-detail.flowers > div {
   display: grid;
   width: 110px;
@@ -504,7 +510,7 @@ footer > p { margin: 0; font-size: .7rem; text-transform: uppercase; }
   .site-nav a { padding: .9rem 0; }
   .nav-cta { margin-top: .5rem; text-align: center; }
   .hero { height: 90vh; min-height: 640px; }
-  .hero-video { object-position: 58% center; }
+  .hero-image { object-position: 58% center; }
   .hero-shade { background: linear-gradient(90deg, rgba(18,48,37,.82), rgba(18,48,37,.22)); }
   .hero-content { width: min(620px, calc(100% - 3rem)); margin-left: 1.5rem; }
   .services-grid { grid-template-columns: 1fr; }
@@ -512,9 +518,15 @@ footer > p { margin: 0; font-size: .7rem; text-transform: uppercase; }
   .about-band { grid-template-columns: 1fr; }
   .about-visual { min-height: 540px; }
   .about-copy { max-width: none; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 320px 240px 280px 360px;
+  }
   .gallery-main { grid-row: 1; grid-column: 1 / 3; }
-  .gallery-wide { grid-column: 1 / 3; }
+  .gallery-detail.tiles { grid-row: 2; grid-column: 1; }
+  .gallery-detail.flowers { grid-row: 2; grid-column: 2; }
+  .gallery-lesson-wide { grid-column: 1 / 3; grid-row: 3; }
+  .gallery-lesson-full { grid-column: 1 / 3; grid-row: 4; }
   .faq { grid-template-columns: 1fr; gap: 2rem; }
   .contact { grid-template-columns: 1fr; }
 }
@@ -532,9 +544,17 @@ footer > p { margin: 0; font-size: .7rem; text-transform: uppercase; }
   .founder-portrait-secondary { right: 1.25rem; bottom: 1.25rem; width: 30%; }
   .about-copy { padding: 4rem 1.5rem; }
   .values { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-rows: 280px 210px 280px; }
-  .gallery-detail { grid-row: 2; }
-  .gallery-wide { grid-row: 3; }
+  .gallery-grid { grid-template-columns: 1fr; grid-template-rows: 280px 210px 230px 230px 340px; }
+  .gallery-main,
+  .gallery-detail.tiles,
+  .gallery-detail.flowers,
+  .gallery-lesson,
+  .gallery-lesson-wide { grid-column: 1; }
+  .gallery-main { grid-row: 1; }
+  .gallery-detail.tiles { grid-row: 2; }
+  .gallery-detail.flowers { grid-row: 3; }
+  .gallery-lesson-wide { grid-row: 4; }
+  .gallery-lesson-full { grid-row: 5; }
   .tile-row span { width: 38px; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
   footer { grid-template-columns: 1fr auto; }
@@ -545,8 +565,4 @@ footer > p { margin: 0; font-size: .7rem; text-transform: uppercase; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
-  .hero-video { display: none; }
-  .hero {
-    background: url("assets/palmetto-mahjong-hero.png") 58% center / cover no-repeat;
-  }
 }

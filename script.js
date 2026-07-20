@@ -3,17 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.lucide.createIcons();
   }
 
-  const heroVideo = document.querySelector(".hero-video");
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (heroVideo && !prefersReducedMotion) {
-    heroVideo.playbackRate = 0.5;
-    heroVideo.defaultPlaybackRate = 0.5;
-    heroVideo.play().catch(() => {
-      heroVideo.controls = true;
-    });
-  }
-
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
 
